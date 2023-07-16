@@ -29,6 +29,21 @@ Vector vector_create() {
     return new_vec;
 }
 
+void vector_clear(Vector * vec) {
+    void ** cleared_data = realloc(vec->data, sizeof(void *));
+    vec->data = cleared_data;
+}
+
+bool vector_contains(Vector * vec) {
+    return false;
+}
+
+void * vector_get(Vector * vec, int index) {
+    if (index >= vector_size(vec) - 1) return NULL;
+    if (index < 0) return NULL;
+    return *(vec->data + index);
+}
+
 void vector_delete(Vector * vec) {
     /*if (!vector_is_empty(vec)) {
         for (size_t ii = 0; ii < vec->size; ii++) {
@@ -60,6 +75,10 @@ void vector_add(Vector * vec, void * item) {
 
 bool vector_is_empty(Vector * vec) {
     return (vec->size <= 0);
+}
+
+size_t vector_size(Vector * vec) {
+    return vec->size;
 }
 
 void vector_print(Vector * vec) {

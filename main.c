@@ -35,22 +35,24 @@ int main() {
     vector_add(&v, (void *) &item);
     vector_print(&v);
 
+        vector_add(&v, (void *) &item2);
+    vector_print(&v);
+
     vector_add(&v, (void * )&item1);
     vector_print(&v);
 
-    for (int i = 0; i < 100; i++) {
+    printf("%d\n", *(int*)vector_get(&v, 1));
+
+    /* allocation test */
+    /*
+    for (int i = 0; i < 10000; i++) {
         int * item = malloc(sizeof(int));
         *item = i;
         vector_add(&v, (void *) item);
         // printf("%zu ", v.capacity);
     }
     printf("\n");
-    vector_print(&v);
-
-
-    // vector_add(&v, &item2);
-    // vector_print(&v);
-
+    vector_print(&v);*/
 
     vector_delete(&v);
     return 0;

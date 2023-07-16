@@ -29,7 +29,7 @@ int main() {
     int * item3 = malloc(sizeof(int));
     *item3 = 22;
     
-    vector_add(&v, (void * )item3);
+    vector_add(&v, (void *) item3);
     vector_print(&v);
 
     vector_add(&v, (void *) &item);

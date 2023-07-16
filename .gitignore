@@ -51,5 +51,7 @@ Module.symvers
 Mkfile.old
 dkms.conf
 
+# user added
 .vscode
 .DS_Store
+vector_test

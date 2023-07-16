@@ -24,7 +24,7 @@ void vector_expand(Vector * vec);
 /* implementations */
 Vector vector_create() {
     size_t size = 0;
-    size_t capacity = 1;
+    size_t capacity = 2;
     Vector new_vec = {size, capacity, malloc(sizeof(void *) * capacity)};
     return new_vec;
 }
@@ -43,7 +43,7 @@ void vector_delete(Vector * vec) {
 }
 
 void vector_expand(Vector * vec) {
-    size_t new_size = vec->capacity + (vec->capacity * 1.5); /* Aim for +50% capacity */
+    size_t new_size = (size_t) (vec->capacity * 1.5); /* Aim for +50% capacity each expansion. */
     vec->capacity = new_size;
     void ** new_data = realloc(vec->data, vec->capacity * sizeof(void*));
     vec->data = new_data;
@@ -56,7 +56,6 @@ void vector_add(Vector * vec, void * item) {
     *(vec->data + vec->size) = item;
 
     vec->size += 1;
-    
 }
 
 bool vector_is_empty(Vector * vec) {

@@ -38,6 +38,16 @@ int main() {
     vector_add(&v, (void * )&item1);
     vector_print(&v);
 
+    for (int i = 0; i < 100; i++) {
+        int * item = malloc(sizeof(int));
+        *item = i;
+        vector_add(&v, (void *) item);
+        // printf("%zu ", v.capacity);
+    }
+    printf("\n");
+    vector_print(&v);
+
+
     // vector_add(&v, &item2);
     // vector_print(&v);
 

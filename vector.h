@@ -28,6 +28,8 @@ typedef struct Vector {
     void ** data;
 } Vector;
 
+#define CAPACITY_DEFAULT 2
+
 /* usage functions */
 Vector vector_create();
 void vector_delete(Vector * vec);

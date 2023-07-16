@@ -20,7 +20,7 @@
 #include"vector.h"
 
 int main() {
-    printf("hello, world\n");
+    printf("example usage\n");
 
     Vector v = vector_create();
     int item = 3;
@@ -29,30 +29,17 @@ int main() {
     int * item3 = malloc(sizeof(int));
     *item3 = 22;
     
+    vector_add(&v, (void *) &item);
+    vector_add(&v, (void * )&item1);
+    vector_add(&v, (void *) &item2);
     vector_add(&v, (void *) item3);
     vector_print(&v);
 
-    vector_add(&v, (void *) &item);
+    vector_clear(&v);
     vector_print(&v);
 
-        vector_add(&v, (void *) &item2);
-    vector_print(&v);
-
-    vector_add(&v, (void * )&item1);
-    vector_print(&v);
-
-    printf("%d\n", *(int*)vector_get(&v, 1));
-
-    /* allocation test */
-    /*
-    for (int i = 0; i < 10000; i++) {
-        int * item = malloc(sizeof(int));
-        *item = i;
-        vector_add(&v, (void *) item);
-        // printf("%zu ", v.capacity);
-    }
-    printf("\n");
-    vector_print(&v);*/
+    int * gotten = (int*) vector_get(&v, 1);
+    if (gotten != NULL) printf("%d\n", *gotten);
 
     vector_delete(&v);
     return 0;

@@ -24,14 +24,16 @@ void vector_expand(Vector * vec);
 /* implementations */
 Vector vector_create() {
     size_t size = 0;
-    size_t capacity = 2;
+    size_t capacity = CAPACITY_DEFAULT;
     Vector new_vec = {size, capacity, malloc(sizeof(void *) * capacity)};
     return new_vec;
 }
 
 void vector_clear(Vector * vec) {
-    void ** cleared_data = realloc(vec->data, sizeof(void *));
+    void ** cleared_data = realloc(vec->data, sizeof(void *) * vec->capacity);
     vec->data = cleared_data;
+    vec->size = 0;
+    vec->capacity = CAPACITY_DEFAULT;
 }
 
 bool vector_contains(Vector * vec) {
@@ -39,13 +41,15 @@ bool vector_contains(Vector * vec) {
 }
 
 void * vector_get(Vector * vec, int index) {
+    if (vector_size(vec) <= 0) return NULL;
     if (index >= vector_size(vec) - 1) return NULL;
     if (index < 0) return NULL;
     return *(vec->data + index);
 }
 
 void vector_delete(Vector * vec) {
-    /*if (!vector_is_empty(vec)) {
+    /* this only works if all items are only heap allocated
+    if (!vector_is_empty(vec)) {
         for (size_t ii = 0; ii < vec->size; ii++) {
             *(vec->data + ii) = NULL;
             free(vec->data + ii);

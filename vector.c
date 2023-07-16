@@ -29,21 +29,36 @@ Vector vector_create() {
     return new_vec;
 }
 
+void vector_delete(Vector * vec) {
+    /* free the individual data memory too? */
+    vec->data = NULL;
+    free(vec->data);
+    vec = NULL;
+    free(vec);
+}
+
 void vector_expand(Vector * vec) {
-    size_t new_size = vec->capacity + (vec->capacity * 1.5); /* Aim for +50% capacity */
+    size_t new_size = vec->capacity * 2;//vec->capacity + (vec->capacity * 1.5); /* Aim for +50% capacity */
     vec->capacity = new_size;
-
-    vec->data = realloc(vec->data, vec->capacity);
-
+    void ** new_data = realloc(vec->data, vec->capacity);
+    // vec->data = new_data;
+    // void ** new_data = malloc(sizeof(void*) * vec->capacity);//calloc(vec->capacity, sizeof(void*));
+    // for (size_t i = 0; i < vec->size; i++) {
+    //     *((char *) new_data + i) = *((char  *) vec->data + i);
+    // }
+    // free(vec->data);
+    vec->data = new_data;
 }
 
 void vector_add(Vector * vec, void * item) {
     if (vec->size >= vec->capacity) {
         vector_expand(vec);
+        // printf("s: %zu, c: %zu\n", vec->size, vec->capacity);
     }
     *(vec->data + vec->size) = item;
-    
+
     vec->size += 1;
+    
 }
 
 void vector_print(Vector * vec) {

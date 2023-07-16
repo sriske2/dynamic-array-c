@@ -16,6 +16,7 @@
 */
 
 #include<stdio.h>
+#include<stdlib.h>
 #include"vector.h"
 
 int main() {
@@ -25,12 +26,22 @@ int main() {
     int item = 3;
     int item1 = 2;
     int item2 = 5;
-    int item3 = 6;
+    int * item3 = malloc(sizeof(int));
+    *item3 = 22;
+    
+    vector_add(&v, (void * )item3);
+    vector_print(&v);
+
     vector_add(&v, (void *) &item);
     vector_print(&v);
 
-    vector_add(&v, &item1);
+    vector_add(&v, (void * )&item1);
     vector_print(&v);
 
+    // vector_add(&v, &item2);
+    // vector_print(&v);
+
+
+    vector_delete(&v);
     return 0;
 }

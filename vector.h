@@ -30,6 +30,7 @@ typedef struct Vector {
 
 /* usage functions */
 Vector vector_create();
+void vector_delete(Vector * vec);
 void vector_add(Vector * vec, void * item);
 void vector_clear(Vector * vec);
 bool vector_contains(Vector * vec);

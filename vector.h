@@ -25,11 +25,12 @@
 typedef struct Vector {
     size_t size;
     size_t capacity;
+    void ** data;
 } Vector;
 
 /* usage functions */
 Vector vector_create();
-void vector_add(Vector * vec);
+void vector_add(Vector * vec, void * item);
 void vector_clear(Vector * vec);
 bool vector_contains(Vector * vec);
 void * vector_get(Vector * vec, int index);

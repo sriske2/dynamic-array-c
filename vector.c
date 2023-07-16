@@ -14,7 +14,8 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
-
+#include<stdio.h>
+#include<stdlib.h>
 #include"vector.h"
 
 /* internal functions */
@@ -22,10 +23,29 @@ void vector_expand(Vector * vec);
 
 /* implementations */
 Vector vector_create() {
-    Vector c = {0, 3};
-    return c;
+    size_t size = 0;
+    size_t capacity = 1;
+    Vector new_vec = {size, capacity, malloc(sizeof(void *) * capacity)};
+    return new_vec;
 }
 
-void vector_add(Vector * vec) {
+void vector_expand(Vector * vec) {
 
+}
+
+void vector_add(Vector * vec, void * item) {
+    if (vec->size >= vec->capacity) {
+        vector_expand(vec);
+    }
+    *(vec->data + vec->size) = item;
+    
+    vec->size += 1;
+}
+
+void vector_print(Vector * vec) {
+    /* Assumes that the data are integers. */
+    for (size_t ii = 0; ii < vec->size; ii++) {
+        printf("%d ", *((int *) *(vec->data + ii)));
+    }
+    printf("\n");
 }

@@ -22,6 +22,9 @@ int main() {
     printf("hello, world\n");
 
     Vector v = vector_create();
+    int item = 3;
+    vector_add(&v, (void *) &item);
+    vector_print(&v);
 
     return 0;
 }

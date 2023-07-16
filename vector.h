@@ -19,11 +19,13 @@
 #ifndef VECTOR_H
 #define VECTOR_H
 
+#include<stdbool.h>
+#include<stddef.h>
+
 typedef struct Vector {
     size_t size;
     size_t capacity;
 } Vector;
-
 
 /* usage functions */
 Vector vector_create();

@@ -21,5 +21,7 @@
 int main() {
     printf("hello, world\n");
 
+    Vector v = vector_create();
+
     return 0;
 }

@@ -18,6 +18,13 @@
 #include"vector.h"
 
 /* internal functions */
+void vector_expand(Vector * vec);
+
+/* implementations */
+Vector vector_create() {
+    Vector c = {0, 3};
+    return c;
+}
 
 void vector_add(Vector * vec) {
 

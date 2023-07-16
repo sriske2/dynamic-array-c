@@ -30,16 +30,21 @@ int main() {
     *item3 = 22;
     
     vector_add(&v, (void *) &item);
-    vector_add(&v, (void * )&item1);
+    vector_add(&v, (void *) &item1);
     vector_add(&v, (void *) &item2);
     vector_add(&v, (void *) item3);
     vector_print(&v);
 
-    vector_clear(&v);
+    // vector_clear(&v);
     vector_print(&v);
 
     int * gotten = (int*) vector_get(&v, 1);
     if (gotten != NULL) printf("%d\n", *gotten);
+
+    printf("%d\n", vector_index_of(&v, (void *) &item2));
+    if (vector_contains(&v, (void *) &item)) {
+        printf("it contains item\n");
+    }
 
     vector_delete(&v);
     return 0;

@@ -36,8 +36,8 @@ void vector_clear(Vector * vec) {
     vec->capacity = CAPACITY_DEFAULT;
 }
 
-bool vector_contains(Vector * vec) {
-    return false;
+bool vector_contains(Vector * vec, void * item) {
+    return (vector_index_of(vec, item) != -1);
 }
 
 void * vector_get(Vector * vec, int index) {
@@ -45,6 +45,15 @@ void * vector_get(Vector * vec, int index) {
     if (index >= vector_size(vec) - 1) return NULL;
     if (index < 0) return NULL;
     return *(vec->data + index);
+}
+
+int vector_index_of(Vector * vec, void * item) {
+    for (size_t ii = 0; ii < vec->size; ii++) {
+        if (*(vec->data + ii) == item) {
+            return ii;
+        }
+    }
+    return -1;
 }
 
 void vector_delete(Vector * vec) {

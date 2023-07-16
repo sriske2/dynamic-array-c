@@ -23,7 +23,13 @@ int main() {
 
     Vector v = vector_create();
     int item = 3;
+    int item1 = 2;
+    int item2 = 5;
+    int item3 = 6;
     vector_add(&v, (void *) &item);
+    vector_print(&v);
+
+    vector_add(&v, &item1);
     vector_print(&v);
 
     return 0;

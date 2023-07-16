@@ -30,6 +30,10 @@ Vector vector_create() {
 }
 
 void vector_expand(Vector * vec) {
+    size_t new_size = vec->capacity + (vec->capacity * 1.5); /* Aim for +50% capacity */
+    vec->capacity = new_size;
+
+    vec->data = realloc(vec->data, vec->capacity);
 
 }
 

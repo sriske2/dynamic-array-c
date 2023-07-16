@@ -1,16 +1,20 @@
 /*
-    List
-        add
-        clear
-        contains
-        get
-        indexOf
-        isEmpty
-        remove
-        set
-        size
-        print
+    Copyright (C) 2023 Skyler Riske
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
+
 #pragma once
 #ifndef VECTOR_H
 #define VECTOR_H
@@ -20,9 +24,9 @@ typedef struct Vector {
     size_t capacity;
 } Vector;
 
-/* construction methods */
 
-/* use methods */
+/* usage functions */
+Vector vector_create();
 void vector_add(Vector * vec);
 void vector_clear(Vector * vec);
 bool vector_contains(Vector * vec);
@@ -33,6 +37,5 @@ void vector_remove(Vector * vec);
 void vector_set(Vector * vec);
 size_t vector_size(Vector * vec);
 void vector_print(Vector * vec);
-
 
 #endif

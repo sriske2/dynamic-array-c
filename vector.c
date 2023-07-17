@@ -57,7 +57,7 @@ int vector_index_of(Vector * vec, void * item) {
 }
 
 void vector_delete(Vector * vec) {
-    /* this only works if all items are only heap allocated
+    /* this only works if all items are heap allocated
     if (!vector_is_empty(vec)) {
         for (size_t ii = 0; ii < vec->size; ii++) {
             *(vec->data + ii) = NULL;
@@ -94,7 +94,7 @@ size_t vector_size(Vector * vec) {
     return vec->size;
 }
 
-void vector_print(Vector * vec) {
+void vector_print_int(Vector * vec) {
     /* Assumes that the data are integers here. */
     for (size_t ii = 0; ii < vec->size; ii++) {
         printf("%d ", *((int *) *(vec->data + ii)));

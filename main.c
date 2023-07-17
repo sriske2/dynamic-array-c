@@ -33,10 +33,10 @@ int main() {
     vector_add(&v, (void *) &item1);
     vector_add(&v, (void *) &item2);
     vector_add(&v, (void *) item3);
-    vector_print(&v);
+    vector_print_int(&v);
 
     // vector_clear(&v);
-    vector_print(&v);
+    vector_print_int(&v);
 
     int * gotten = (int*) vector_get(&v, 1);
     if (gotten != NULL) printf("%d\n", *gotten);

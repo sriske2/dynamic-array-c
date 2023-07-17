@@ -1,4 +1,4 @@
-CC = gcc-13
+CC = gcc
 CFLAGS = --std=c11 -Wall -pedantic
 all: main.c vector.o
 	$(CC) $(CFLAGS) main.c vector.o -o vector_test

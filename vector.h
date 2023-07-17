@@ -31,7 +31,7 @@ typedef struct Vector {
 #define CAPACITY_DEFAULT 2
 
 /* usage functions */
-Vector vector_create();
+Vector vector_create(void);
 void vector_delete(Vector * vec);
 void vector_add(Vector * vec, void * item);
 void vector_clear(Vector * vec);

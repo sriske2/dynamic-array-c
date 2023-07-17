@@ -22,7 +22,7 @@
 void vector_expand(Vector * vec);
 
 /* implementations */
-Vector vector_create() {
+Vector vector_create(void) {
     size_t size = 0;
     size_t capacity = CAPACITY_DEFAULT;
     Vector new_vec = {size, capacity, malloc(sizeof(void *) * capacity)};

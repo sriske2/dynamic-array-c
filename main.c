@@ -19,7 +19,7 @@
 #include<stdlib.h>
 #include"vector.h"
 
-int main() {
+int main(void) {
     printf("example usage\n");
 
     Vector v = vector_create();

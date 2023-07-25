@@ -90,6 +90,14 @@ bool vector_is_empty(Vector * vec) {
     return (vec->size <= 0);
 }
 
+void vector_remove(Vector * vec, void * item) {
+
+}
+
+void vector_set(Vector, void * item, int index) {
+    
+}
+
 size_t vector_size(Vector * vec) {
     return vec->size;
 }
